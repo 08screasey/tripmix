@@ -7,6 +7,7 @@ import ComboPanel from '../components/combo-panel';
 import DrugInfo from '../components/drug-info';
 import SEO from "../components/seo";
 import { graphql } from 'gatsby';
+import image from '../images/refresh-svgrepo-com.svg';
 import Input from '../components/Form/Input';
 import { CSSTransition } from 'react-transition-group';
 
@@ -61,7 +62,7 @@ const IndexPage = ({ data }) => {
       <Container className="text-center">
       
       {detailedInfo && <ComboPanel info={detailedInfo}/>}
-      {selectedDrugs.length>0 && <div className="mb-3" id="refresh-box" onClick={handleReset}><img id="refresh" src="../images/refresh-svgrepo-com.svg" width="15px"/><p className="m-0">{" Reset Search"}</p></div>}
+      {selectedDrugs.length>0 && <div className="mb-3" id="refresh-box" onClick={handleReset}><img id="refresh" src={image} width="15px"/><p className="m-0">{" Reset Search"}</p></div>}
       <Row>
         <Col xs={12}>
         <CSSTransition timeout={{exit:600, enter:0}} in={selectedDrugs && selectedDrugs.length < 2} unmountOnExit mountOnEnter>
