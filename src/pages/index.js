@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
       <Container className="text-center">
       
       {detailedInfo && <ComboPanel info={detailedInfo}/>}
-      {selectedDrugs.length>0 && <div className="mb-3" id="refresh-box" onClick={handleReset}><img id="refresh" src="/icons/refresh-svgrepo-com.svg" width="15px"/><p className="m-0">{" Reset Search"}</p></div>}
+      {selectedDrugs.length>0 && <div className="mb-3" id="refresh-box" onClick={handleReset}><img id="refresh" src="../images/refresh-svgrepo-com.svg" width="15px"/><p className="m-0">{" Reset Search"}</p></div>}
       <Row>
         <Col xs={12}>
         <CSSTransition timeout={{exit:600, enter:0}} in={selectedDrugs && selectedDrugs.length < 2} unmountOnExit mountOnEnter>
