@@ -1,0 +1,43 @@
+@import '../styles/_variables.scss';
+.Combo_Panel{
+    border-radius: 15px;
+    padding:20px 10px 10px 10px ;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
+
+    &.dangerous{
+        h2{
+            color:$red;}
+            background: rgba($red, 0.05);
+        
+    }
+    &.caution{
+        h2{
+            color:$yellow;}
+            background: rgba($yellow, 0.05);
+        
+    } 
+    &.unsafe{
+        h2{
+            color:$orange;}
+            background: rgba($orange, 0.05);
+        
+    }
+    &.lowno{
+        h2{
+            color:$aqua;}
+            background: rgba($aqua, 0.05);
+        
+    }
+    &.lowdec{
+        h2{
+            color:$blue;}
+            background: rgba($blue, 0.05);
+        
+    }
+    &.lowinc{
+        h2{
+            color:$green;}
+            background: rgba($green, 0.05);
+        
+    }
+}

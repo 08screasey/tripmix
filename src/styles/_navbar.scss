@@ -5,3 +5,22 @@
   top: 0;
   z-index: 100;
 }
+
+.nav-tabs{
+  border-bottom: none;
+  justify-content: space-around;
+  .nav-item{
+    width:40%;
+    font-family: 'industry';
+    font-weight: 700;
+    color:rgb(123, 122, 122);
+    border: none;
+    padding:20px 10px 10px 10px;
+    &.active{
+      background-color: whitesmoke;
+      color:rgb(0, 0, 0);
+      border:none;
+      border-bottom: 2px solid rgb(196, 6, 63);
+    }
+  }
+}

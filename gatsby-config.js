@@ -1,12 +1,27 @@
 module.exports = {
   pathPrefix: "/gatsby-react-bootstrap-starter",
   siteMetadata: {
-    title: `Gatsby React Bootstrap Starter`,
+    title: `Party Safe`,
     description: `A starter that includes react-bootstrap and react-icons, along with SASS compilation.`,
     author: `Billy Jacoby`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        typekit:{
+          id:'fzr3gwq'
+        }
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

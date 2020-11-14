@@ -32,7 +32,6 @@ const Layout = ({ children, pageInfo }) => (
               <Header siteTitle={data.site.siteMetadata.title} />
             </Col>
           </Row>
-          <Navbar pageInfo={pageInfo} />
           <Row noGutters>
             <Col>
               <Container className="mt-5">
@@ -46,9 +45,7 @@ const Layout = ({ children, pageInfo }) => (
             <Col className="footer-col">
               <footer>
                 <span>
-                  © {new Date().getFullYear()}, Built with
-                  {` `}
-                  <a href="https://www.gatsbyjs.org">Gatsby</a>
+                  © {new Date().getFullYear()}, Built by Sam Creasey, Tripsit
                 </span>
               </footer>
             </Col>

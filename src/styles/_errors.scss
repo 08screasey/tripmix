@@ -1,0 +1,39 @@
+.Error-Bubble{
+    background:red
+}
+.Error-Bubble {
+    position: absolute;
+    right:20px;
+    top:10px;
+	background: #fcebde;
+    border-radius: .4em;
+    transition:0.2s;
+    width:150px;
+    padding:5px;
+    font-size:10px;
+    font-weight:700;
+    font-family: 'industry';
+}
+
+.Error-Bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 10px;
+	left: 90%;
+	width: 0;
+	height: 0;
+    border: 10px solid transparent;
+	border-top-color: #fcebde;
+	border-bottom: 0;
+	margin-left: -20px;
+	margin-bottom: -20px;
+}
+.Error-Bubble.enter{
+    opacity: 0;
+}
+.Error-Bubble.enter-done{
+    opacity: 1;
+}
+.Error-Bubble.exit-activ{
+    opacity: 0;
+}

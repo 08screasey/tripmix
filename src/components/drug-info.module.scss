@@ -1,0 +1,70 @@
+@import '../styles/variables';
+.DrugInfo{
+    font-family: 'industry', sans-serif;
+    padding-top:30px;
+    padding-bottom:30px;
+    h4{
+        text-align:center;
+        font-size:17px;
+        background: rgb(41, 21, 59);
+        color:white;
+        margin-bottom: 0px;
+        padding:10px
+    }
+    h3{
+        text-align:left;
+        font-weight: 700;
+        font-size:20px
+    }
+    ul{
+        list-style: none;
+        padding:0px;
+        margin:0px;
+        li{list-style: none;
+        padding: 0px;
+        margin:auto;
+        ul{
+            li{
+                margin:auto;
+                display: flex;
+                text-align: left;
+            padding:5px 20px;
+                justify-content: space-between;
+                span{display:block}
+                &:nth-child(2n+1){
+                    background: $paler;
+                }
+            }
+        }
+        &.table{
+            width:80%;
+            background-color: $pale;
+            margin-bottom: 20px;
+        }
+        }
+    }
+    div.dangerous{
+        h4{background-color: $red;}
+        background: rgba($red, 0.1);
+    }
+    div.caution{
+        h4{background-color: $yellow;}
+        background: rgba($yellow, 0.1);
+    }
+    div.unsafe{
+        h4{background-color: $orange;}
+        background: rgba($orange, 0.1);
+    }
+    div.lowinc{
+        h4{background-color: $green;}
+        background: rgba($green, 0.1);
+    }
+    div.lowdec{
+        h4{background-color: $blue;}
+        background: rgba($blue, 0.1);
+    }
+    div.lowno{
+        h4{background-color: $aqua;}
+        background: rgba($aqua, 0.1);
+    }
+}
