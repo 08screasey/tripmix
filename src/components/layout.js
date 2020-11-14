@@ -34,7 +34,7 @@ const Layout = ({ children, pageInfo }) => (
           </Row>
           <Row noGutters>
             <Col>
-              <Container className="mt-5">
+              <Container className="mt-4">
                 <main>{children}</main>
               </Container>
             </Col>

@@ -10,7 +10,10 @@
   border-bottom: none;
   justify-content: space-around;
   .nav-item{
-    width:40%;
+    width:45%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
     font-family: 'industry';
     font-weight: 700;
     color:rgb(123, 122, 122);

@@ -25,7 +25,7 @@ const ComboPanel = ({info}) => {
 
     }
     return (
-        <div className={styles.Combo_Panel+" "+styles[info.category] + " F-Industry"} style={{marginBottom:"30px"}}>
+        <div className={styles.Combo_Panel+" "+styles[info.category] + " F-Industry mt-5"} style={{marginBottom:"30px"}}>
             <h2 className="Bold">{renderCategory}</h2>
             {info.details !== "No additional Information" && <p className="Bold">{info.details}</p>}
         </div>

@@ -1,6 +1,8 @@
 @import '../styles/_variables.scss';
 .Combo_Panel{
     border-radius: 15px;
+    max-width: 500px;
+    margin:auto;
     padding:20px 10px 10px 10px ;
     box-shadow: 5px 5px 20px rgba(0,0,0,0.1);
 

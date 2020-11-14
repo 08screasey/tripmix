@@ -28,5 +28,5 @@ export default function (obj1, obj2){
         }
     })
     console.log(foundData)
-    return foundData ? foundData : {category:"N/A", details:"No details of combination"}
+    return foundData ? foundData : {category:"N/A", details:"No details of this combination, take a look in the \"other mix\" info."}
 }

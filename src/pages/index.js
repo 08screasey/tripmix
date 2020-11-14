@@ -16,7 +16,6 @@ const IndexPage = ({ data }) => {
   const [filteredList, setFilteredList] = useState([])
   const [selectedDrugs, setSelectedDrugs] = useState([])
   const [searchForm, updateSearchForm] = useState("")
-  const [filterError, setFilterError] = useState(false)
   const [detailedInfo, setDetailedInfo] = useState(undefined)
 
   const dataFetch = (array) => {
@@ -25,7 +24,6 @@ const IndexPage = ({ data }) => {
     setDetailedInfo(compare(d1, d2))
   }
   const handleInputChange = (e) => {
-    setFilterError(false)
     updateSearchForm(e.target.value)
     setFilteredList(listQuery(drugs, e.target.value, 5, fullInfo))
   }
@@ -33,12 +31,17 @@ const IndexPage = ({ data }) => {
     e.preventDefault()
   }
   const handleListClick = (label) => {
-    setFilterError(false)
     drugTouched(label)
   }
+  const handleReset = () => {
+    setFilteredList([])
+    setSelectedDrugs([])
+    updateSearchForm("")
+    setDetailedInfo(undefined)
+  }
+
   const drugTouched = (drugName) => {
     const length = selectedDrugs.length
-    setFilterError(false)
     if (length < 1) {
       setSelectedDrugs([drugName])
       updateSearchForm("")
@@ -56,28 +59,26 @@ const IndexPage = ({ data }) => {
     <Layout pageInfo={{ pageName: "index" }}>
       <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
       <Container className="text-center">
+      
+      {detailedInfo && <ComboPanel info={detailedInfo}/>}
+      {selectedDrugs.length>0 && <div className="mb-3" id="refresh-box" onClick={handleReset}><img id="refresh" src="/icons/refresh-svgrepo-com.svg" width="15px"/><p className="m-0">{" Reset Search"}</p></div>}
       <Row>
         <Col xs={12}>
-        <CSSTransition timeout={600} in={selectedDrugs && selectedDrugs.length < 2} unmountOnExit>
-          <form onSubmit={handleFormSubmit} className="mx-auto mb-5" style={{ maxWidth: '500px', width: "100%" }}>
+        <CSSTransition timeout={{exit:600, enter:0}} in={selectedDrugs && selectedDrugs.length < 2} unmountOnExit mountOnEnter>
+          <form onSubmit={handleFormSubmit} className="mx-auto mb-5 mt-2" style={{ maxWidth: '500px', width: "100%" }}>
             <Input placeholder={selectedDrugs.length < 1 ? "Add your first drug" : "Add a second drug"} onChange={handleInputChange} value={searchForm} />
             {filteredList.length > 0 && (<ul>
               {filteredList.map(el => (<li key={el} onClick={() => handleListClick(el)}>{el}</li>))}
             </ul>)}
-            <CSSTransition in={filterError} timeout={300} mountOnEnter unmountOnExit>
-              <div className="Error-Bubble">
-                {filteredList.length < 1 ? "No matches found. Consider changing your results" : "Too many matches, consider refining search"}
-              </div>
-            </CSSTransition>
           </form>
         </CSSTransition>
         </Col>
       </Row>
         
-        {detailedInfo && <ComboPanel info={detailedInfo}/>}
-        <Row style={{boxShadow:"10px 10px 20px rgba(0,0,0,0.1)", marginBottom:'20px'}}>
+        
+        <Row style={{boxShadow:"10px 10px 20px rgba(0,0,0,0.1)", marginBottom:'20px', borderRadius:"10px"}}>
         <Col xs={12}>
-        <Tabs defaultActiveKey="key1" id="tabs">
+        <Tabs defaultActiveKey="key1" activeKey={selectedDrugs.length===1 ? 'key1' : undefined} id="tabs">
           {selectedDrugs.length > 0 && (<Tab eventKey="key1" title={selectedDrugs[0]}>
           <DrugInfo drug={data.allDataJson.edges[0].node.drugs.find((el)=>el.name===selectedDrugs[0])}/>
           </Tab>)}

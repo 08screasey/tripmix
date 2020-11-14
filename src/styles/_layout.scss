@@ -13,7 +13,7 @@ a.link-no-style {
     text-decoration: none;
   }
 }
-
+*{word-wrap: break-word;}
 .footer-col {
   display: flex;
   flex-direction: column;
@@ -36,4 +36,25 @@ a.link-no-style {
       text-align: center;
     }
   }
+}
+
+#refresh{
+  animation:spin 10s infinite
+}
+#refresh-box{
+  border-radius: 10px;
+  width:120px;
+  color:rgb(118, 118, 118);
+  margin:auto;
+  font-weight: 700;
+  font-size: 13px;
+  padding:10px;
+  box-shadow:5px 5px 10px rgba(0, 0, 0, 0.047) , -5px -5px 10px rgba(255, 255, 255, 0.714);
+  cursor: pointer;
+}
+
+@keyframes spin {
+  0%{transform:rotateZ(0deg)}
+  50%{transform:rotateZ(-360deg)}
+  100%{transform:rotateZ(-360deg)}
 }
