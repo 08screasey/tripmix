@@ -44,7 +44,7 @@ const Layout = ({ children, pageInfo }) => (
             <Col className="footer-col">
               <footer>
                 <span>
-                  © {new Date().getFullYear()}, Built by <a href="www.venturegreentravel.com" rel="noreferrer">Sam Creasey</a>, Tripsit
+                  © {new Date().getFullYear()}, Built by <a href="https://www.venturegreentravel.com" rel="noreferrer">Sam Creasey</a>, Tripsit
                 </span>
               </footer>
             </Col>

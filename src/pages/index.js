@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import { Container, Row, Col, Tab, Tabs } from "react-bootstrap"
 import listQuery from "../utilityfunctions/list-query"
 import compare from "../utilityfunctions/compare"
@@ -19,7 +19,11 @@ const IndexPage = ({ data }) => {
   const [searchForm, updateSearchForm] = useState("")
   const [detailedInfo, setDetailedInfo] = useState(undefined)
   const [tableInView, setTableInView] = useState(false)
-
+useEffect(()=>{
+  window.self.addEventListener( "activate", event => {
+    console.log('WORKER: activate event in progress.12345');
+});
+},[])
   const dataFetch = array => {
     const d1 = data.allDataJson.edges[0].node.drugs.find(
       obj => obj.name === array[0]
@@ -84,10 +88,15 @@ const IndexPage = ({ data }) => {
             <p className="m-0">{" Reset Search"}</p>
           </div>
         )}
+        <CSSTransition in={selectedDrugs.length === 0} timeout={1000} unmountOnExit>
+          <div className="Info-Panel my-4 F-Industry T-Outline">
+            Combining information from Tripsit's factsheets and drug interactions to help you get the knowledge you need, when you need it.
+          </div>
+        </CSSTransition>
         <Row>
           <Col xs={12}>
             <CSSTransition
-              timeout={{ exit: 600, enter: 0 }}
+              timeout={{ exit: 1000, enter: 1000 }}
               in={selectedDrugs && selectedDrugs.length < 2}
               unmountOnExit
               mountOnEnter

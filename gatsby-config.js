@@ -36,13 +36,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Tripsit Combination DB`,
+        name: `Tripsit Database`,
         short_name: `TripMix`,
         start_url: `/`,
-        background_color: `#20232a`,
-        theme_color: `#20232a`,
+        background_color: `#000`,
+        theme_color: `#000`,
         display: `minimal-ui`,
-        icon:`src/images/TripSit.jpg`
+        icon:`src/images/TripSit2.jpg`
       },
     },
     `gatsby-plugin-offline`
