@@ -10,6 +10,7 @@ export default function (list, query, length, comparingObj){
         if(foundObj){
             for(let i = 0; i <foundObj.aliases.length; i++){
             if(quickTest(query, foundObj.aliases[i])){
+            console.log(foundObj)
                 return true
             }
         }}

@@ -152,8 +152,8 @@ const DrugInfo = ({ drug }) => {
       )}
       {drug.url && (
         <>
-          <h3 className="pt-4 pb-3">Tripsit Link <img src={Link} width="18px"/></h3>
-          <a href={drug.url} target="_blank">{drug.url}</a>
+          <h3 className="pt-4 pb-3">Tripsit Link <img src={Link} width="18px" alt=""/></h3>
+          <a href={drug.url} rel="noreferrer" target="_blank">{drug.url}</a>
         </>
       )}
     </div>

@@ -22,6 +22,8 @@ const ComboPanel = ({info}) => {
         case "lowdec":
             renderCategory = "Low Risk & Decreased Effects";
             break;
+        default:
+            break;
 
     }
     return (

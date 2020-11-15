@@ -7,7 +7,7 @@ form{
     overflow: hidden;
     padding:0px 0px;
     border-radius: 10px 10px 5px 5px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.054);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.054), -10px -10px 20px rgb(255, 255, 255);
      ul {
     padding:0px;
     transition: 0.5s;
@@ -40,6 +40,21 @@ form{
     }
     li{ font-family: 'industry';
         padding:15px 0;
+        button{color:inherit;
+            width:100%;
+            height:100%;
+            border: none;
+            background-color: inherit;
+        text-decoration: none;
+    &:hover{
+        color:inherit;
+        text-decoration: none;
+    }
+    &:target,
+    &:active{
+        outline:none
+    }
+}
         &:nth-child(2n+1){
             background: rgb(247, 247, 247);
         }
