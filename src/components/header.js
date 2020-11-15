@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => (
             textDecoration: `none`,
           }}
         >
-          <img src={HeaderImage} alt="" height="100px"/>
+          <img src={HeaderImage} alt="" height="75px"/>
         </Link>
       </h1>
     </div>
