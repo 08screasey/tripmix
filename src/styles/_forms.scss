@@ -23,7 +23,7 @@ form{
      
     /* Track */
     &::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.088); 
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.034); 
         -webkit-border-radius: 10px;
         border-radius: 10px;
     }
@@ -32,11 +32,11 @@ form{
     &::-webkit-scrollbar-thumb {
         -webkit-border-radius: 10px;
         border-radius: 10px;
-        background: #c4063f; 
-        -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.177); 
+        background: rgba(0,0,0,0.075); 
+        -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.075); 
     }
     &::-webkit-scrollbar-thumb:window-inactive {
-        background: #c4063f; 
+        background: rgba(0, 0, 0, 0.061); 
     }
     li{ font-family: 'industry';
         padding:15px 0;

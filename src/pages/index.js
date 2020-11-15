@@ -14,11 +14,11 @@ import { CSSTransition } from 'react-transition-group';
 const IndexPage = ({ data }) => {
   const drugs = data.allDataJson.edges[0].node.names;
   const fullInfo = data.allDataJson.edges[0].node.drugs;
-  console.log(drugs)
   const [filteredList, setFilteredList] = useState([])
   const [selectedDrugs, setSelectedDrugs] = useState([])
   const [searchForm, updateSearchForm] = useState("")
   const [detailedInfo, setDetailedInfo] = useState(undefined)
+  const [tableInView, setTableInView] = useState(false);
 
   const dataFetch = (array) => {
     const d1 = data.allDataJson.edges[0].node.drugs.find((obj) => obj.name === array[0])
@@ -47,6 +47,7 @@ const IndexPage = ({ data }) => {
     if (length < 1) {
       setSelectedDrugs([drugName])
       updateSearchForm("")
+      setTableInView(true)
       setFilteredList([])
     }
     if (length === 1) {
@@ -56,19 +57,21 @@ const IndexPage = ({ data }) => {
       dataFetch(newArray)
     }
   }
+const triggerResetAnimation = () => {
+setTableInView(false);
+  }
 
   return (
     <Layout pageInfo={{ pageName: "index" }}>
       <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
       <Container className="text-center">
-      
       {detailedInfo && <ComboPanel info={detailedInfo}/>}
-      {selectedDrugs.length>0 && <div className="mb-3" id="refresh-box" onClick={handleReset}><img id="refresh" src={image} width="15px"/><p className="m-0">{" Reset Search"}</p></div>}
+      {selectedDrugs.length>0 && <div className="mb-3" id="refresh-box" onClick={triggerResetAnimation}><img id="refresh" src={image} width="15px"/><p className="m-0">{" Reset Search"}</p></div>}
       <Row>
         <Col xs={12}>
         <CSSTransition timeout={{exit:600, enter:0}} in={selectedDrugs && selectedDrugs.length < 2} unmountOnExit mountOnEnter>
           <form onSubmit={handleFormSubmit} className="mx-auto mb-5 mt-2" style={{ maxWidth: '500px', width: "100%" }}>
-            <Input placeholder={selectedDrugs.length < 1 ? "Add your first drug" : "Add a second drug"} onChange={handleInputChange} value={searchForm} />
+            <Input placeholder={selectedDrugs.length < 1 ? "I want to know about ..." : `How does this interact with ...`} onChange={handleInputChange} value={searchForm} />
             {filteredList.length > 0 && (<ul>
               {filteredList.map((el,i) => (<li key={`${el}${i}`} onClick={() => handleListClick(el)}>{el}</li>))}
             </ul>)}
@@ -77,8 +80,8 @@ const IndexPage = ({ data }) => {
         </Col>
       </Row>
         
-        
-        <Row style={{boxShadow:"10px 10px 20px rgba(0,0,0,0.1)", marginBottom:'20px', borderRadius:"10px"}}>
+        <CSSTransition in={tableInView} timeout={600} onExited={handleReset}>
+        <Row style={{boxShadow:"10px 10px 20px rgba(0,0,0,0.1)", marginBottom:'20px', borderRadius:"10px"}} id="DrugInfoContainer">
         <Col xs={12}>
         <Tabs defaultActiveKey="key1" activeKey={selectedDrugs.length===1 ? 'key1' : undefined} id="tabs">
           {selectedDrugs.length > 0 && (<Tab eventKey="key1" title={selectedDrugs[0]}>
@@ -89,6 +92,7 @@ const IndexPage = ({ data }) => {
           </Tab>)}
         </Tabs>
         </Col></Row>
+        </CSSTransition>
         
       </Container>
     </Layout>
@@ -105,6 +109,7 @@ export const query = graphql`
           aliases
           labels
           name
+          url
           interactions {
             name
             category

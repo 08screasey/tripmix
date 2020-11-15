@@ -51,10 +51,35 @@ a.link-no-style {
   padding:10px;
   box-shadow:5px 5px 10px rgba(0, 0, 0, 0.047) , -5px -5px 10px rgba(255, 255, 255, 0.714);
   cursor: pointer;
+  transition:0.2s;
+  &:hover{
+    box-shadow:3px 3px 3px rgba(0, 0, 0, 0.095) , -3px -3px 3px rgba(255, 255, 255, 0.857);
+
+  }
 }
 
 @keyframes spin {
   0%{transform:rotateZ(0deg)}
   50%{transform:rotateZ(-360deg)}
   100%{transform:rotateZ(-360deg)}
+}
+
+#DrugInfoContainer{
+  transition:0.6s;
+  &.enter{
+  transform: translateY(100%);}
+  &.enter-active{
+    transform: translateY(0);
+  }
+  &.enter-done{
+    transform: translateY(0);
+  }
+  &.exit{
+    transform: translateY(0%);}
+    &.exit-active{
+      transform: translateY(100%);
+    }
+}
+#DrugInfoContainer{
+  transform: translateY(100%);
 }
