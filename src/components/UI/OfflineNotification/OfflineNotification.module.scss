@@ -1,0 +1,35 @@
+.OfflineNotification{
+    width:250px;
+    position: fixed;
+    bottom:75px;
+    background:white;
+    border-radius:10px;
+    z-index:100;
+    padding:10px 20px;
+    animation: grow 1s 1;
+    transform-origin: 100% 100%;
+    right:20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.34);
+    font-family: 'industry', sans-serif;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 1px;
+        left: 80%;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-top-color: #ffffff;
+        border-bottom: 0;
+        border-right: 0;
+        margin-left: -10px;
+        margin-bottom: -20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.463);
+    }
+}
+
+@keyframes grow {
+    from{transform:scale(0.6);
+    opactiy:0}
+    to{transform:scale(1);
+    opacity:1}}

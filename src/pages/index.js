@@ -10,7 +10,7 @@ import { graphql } from "gatsby"
 import image from "../images/refresh-svgrepo-com.svg"
 import Input from "../components/Form/Input"
 import { CSSTransition } from "react-transition-group"
-
+import OfflineNotification from "../components/UI/OfflineNotification/OfflineNotification.js";
 const IndexPage = ({ data }) => {
   const drugs = [...new Set(data.allDataJson.edges[0].node.names)]
   const fullInfo = [...new Set(data.allDataJson.edges[0].node.drugs)]
@@ -19,9 +19,10 @@ const IndexPage = ({ data }) => {
   const [searchForm, updateSearchForm] = useState("")
   const [detailedInfo, setDetailedInfo] = useState(undefined)
   const [tableInView, setTableInView] = useState(false)
+  const [offlineSuccess, setOfflineSuccess] = useState(false);
 useEffect(()=>{
   window.self.addEventListener( "activate", event => {
-    console.log('WORKER: activate event in progress.12345');
+    setOfflineSuccess(true)
 });
 },[])
   const dataFetch = array => {
@@ -134,7 +135,7 @@ useEffect(()=>{
             </CSSTransition>
           </Col>
         </Row>
-
+        {offlineSuccess && <OfflineNotification clicked={()=>setOfflineSuccess(false)}/>}
         <CSSTransition in={tableInView} timeout={600} onExited={handleReset}>
           <Row
             style={{
