@@ -1,9 +1,9 @@
 module.exports = {
-  pathPrefix: "/gatsby-react-bootstrap-starter",
+  pathPrefix: "/tripmix",
   siteMetadata: {
-    title: `Party Safe`,
-    description: `A starter that includes react-bootstrap and react-icons, along with SASS compilation.`,
-    author: `Billy Jacoby`,
+    title: `Trip Mix`,
+    description: `The mobile pocket guide to harm-reduction through education.`,
+    author: `Sam Creasey`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
