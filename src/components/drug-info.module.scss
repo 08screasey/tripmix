@@ -48,25 +48,31 @@
     div.dangerous{
         h4{background-color: $red;}
         background: rgba($red, 0.1);
+        box-shadow:0px -5px 10px rgba(0,0,0,0.1);
     }
     div.caution{
-        h4{background-color: $yellow;}
+        h4{background-color: $yellow;
+            box-shadow:0px -5px 10px rgba(0,0,0,0.1);}
         background: rgba($yellow, 0.1);
     }
     div.unsafe{
-        h4{background-color: $orange;}
+        h4{background-color: $orange;
+            box-shadow:0px -5px 10px rgba(0,0,0,0.1);}
         background: rgba($orange, 0.1);
     }
     div.lowinc{
-        h4{background-color: $green;}
+        h4{background-color: $green;
+            box-shadow:0px -5px 10px rgba(0,0,0,0.1);}
         background: rgba($green, 0.1);
     }
     div.lowdec{
-        h4{background-color: $blue;}
+        h4{background-color: $blue;
+            box-shadow:0px -5px 10px rgba(0,0,0,0.1);}
         background: rgba($blue, 0.1);
     }
     div.lowno{
-        h4{background-color: $aqua;}
+        h4{background-color: $aqua;
+            box-shadow:0px -5px 10px rgba(0,0,0,0.1);}
         background: rgba($aqua, 0.1);
     }
     a{
