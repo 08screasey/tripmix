@@ -9,18 +9,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Tripsit Combinations`,
-        short_name: `TripMix`,
-        start_url: `/`,
-        background_color: `#f5f5f5`,
-        theme_color: `#a2466c`,
-        display: `standalone`,
-      },
-    },
-    `gatsby-plugin-offline`,
-    {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         typekit:{
@@ -55,6 +43,7 @@ module.exports = {
         display: `minimal-ui`,
       },
     },
+    `gatsby-plugin-offline`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
