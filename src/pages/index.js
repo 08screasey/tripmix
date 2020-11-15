@@ -14,6 +14,7 @@ import { CSSTransition } from 'react-transition-group';
 const IndexPage = ({ data }) => {
   const drugs = data.allDataJson.edges[0].node.names;
   const fullInfo = data.allDataJson.edges[0].node.drugs;
+  console.log(drugs)
   const [filteredList, setFilteredList] = useState([])
   const [selectedDrugs, setSelectedDrugs] = useState([])
   const [searchForm, updateSearchForm] = useState("")
@@ -26,7 +27,7 @@ const IndexPage = ({ data }) => {
   }
   const handleInputChange = (e) => {
     updateSearchForm(e.target.value)
-    setFilteredList(listQuery(drugs, e.target.value, 5, fullInfo))
+    setFilteredList(listQuery(drugs, e.target.value, undefined, fullInfo))
   }
   const handleFormSubmit = (e) => {
     e.preventDefault()
@@ -69,7 +70,7 @@ const IndexPage = ({ data }) => {
           <form onSubmit={handleFormSubmit} className="mx-auto mb-5 mt-2" style={{ maxWidth: '500px', width: "100%" }}>
             <Input placeholder={selectedDrugs.length < 1 ? "Add your first drug" : "Add a second drug"} onChange={handleInputChange} value={searchForm} />
             {filteredList.length > 0 && (<ul>
-              {filteredList.map(el => (<li key={el} onClick={() => handleListClick(el)}>{el}</li>))}
+              {filteredList.map((el,i) => (<li key={`${el}${i}`} onClick={() => handleListClick(el)}>{el}</li>))}
             </ul>)}
           </form>
         </CSSTransition>
