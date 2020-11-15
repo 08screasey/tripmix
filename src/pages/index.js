@@ -71,7 +71,7 @@ setTableInView(false);
         <Col xs={12}>
         <CSSTransition timeout={{exit:600, enter:0}} in={selectedDrugs && selectedDrugs.length < 2} unmountOnExit mountOnEnter>
           <form onSubmit={handleFormSubmit} className="mx-auto mb-5 mt-2" style={{ maxWidth: '500px', width: "100%" }}>
-            <Input placeholder={selectedDrugs.length < 1 ? "I want to know about ..." : `Is it ok to mix with ...`} onChange={handleInputChange} value={searchForm} />
+            <Input placeholder={selectedDrugs.length < 1 ? "I want to know about..." : `Will it interact with...`} onChange={handleInputChange} value={searchForm} />
             {filteredList.length > 0 && (<ul>
               {filteredList.map((el,i) => (<li key={`${el}${i}`} onClick={() => handleListClick(el)}>{el}</li>))}
             </ul>)}
