@@ -1,7 +1,7 @@
 import quickTest from './quicktest';
 export default function (list, query, length, comparingObj){
     console.log(list, query, comparingObj)
-    return list.filter((el)=>{
+    const l = list.filter((el)=>{
         if(quickTest(query, el)){
             console.log(query, el)
             return true
@@ -15,4 +15,6 @@ export default function (list, query, length, comparingObj){
         }}
         return false
     }).slice(0, length)
+    console.log(l);
+    return l
 }
