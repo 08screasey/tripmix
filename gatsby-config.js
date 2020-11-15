@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: "/tripmix",
   siteMetadata: {
-    title: `Trip Mix`,
+    title: `TripMix Database`,
     description: `The mobile pocket guide to harm-reduction through education.`,
     author: `Sam Creasey`,
   },
