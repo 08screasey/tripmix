@@ -7,6 +7,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify`,
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-web-font-loader`,
