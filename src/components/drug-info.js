@@ -60,13 +60,11 @@ const DrugInfo = ({ drug }) => {
                       .sort(([key, value], [keyb, valueb]) => {
                         const initVal = value.split("-")[0]
                         const compareVal = valueb.split("-")[0]
-                        console.log(compareVal, initVal, "Values")
                         return parseFloat(initVal) > parseFloat(compareVal)
                           ? 1
                           : -1
                       })
                       .map(([key, value]) => {
-                        console.log(key, value)
                         return value !== null ? (
                           <li key={key}>
                             <span>{key}:</span> <span>{value}</span>

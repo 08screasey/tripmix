@@ -76,6 +76,7 @@ const IndexPage = ({ data }) => {
             className="mb-3"
             id="refresh-box"
             role="button"
+            tabIndex={0}
             onClick={triggerResetAnimation}
             onKeyDown={triggerResetAnimation}
           >
