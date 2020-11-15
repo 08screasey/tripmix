@@ -36,12 +36,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-react-bootstrap`,
-        short_name: `react-bootstrap`,
+        name: `Tripsit Combination DB`,
+        short_name: `TripMix`,
         start_url: `/`,
         background_color: `#20232a`,
         theme_color: `#20232a`,
         display: `minimal-ui`,
+        icon:`src/images/TripSit.jpg`
       },
     },
     `gatsby-plugin-offline`
