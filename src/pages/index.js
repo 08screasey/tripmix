@@ -20,9 +20,11 @@ const IndexPage = ({ data }) => {
   const [detailedInfo, setDetailedInfo] = useState(undefined)
   const [tableInView, setTableInView] = useState(false)
   const [offlineSuccess, setOfflineSuccess] = useState(false);
+
 useEffect(()=>{
-  window.self.addEventListener( "activate", event => {
+  window.self.addEventListener( "install", event => {
     setOfflineSuccess(true)
+    console.log('success')
 });
 },[])
   const dataFetch = array => {
