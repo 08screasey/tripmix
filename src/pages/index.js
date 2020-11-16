@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react"
+import React, { useState } from "react"
 import { Container, Row, Col, Tab, Tabs } from "react-bootstrap"
 import listQuery from "../utilityfunctions/list-query"
 import compare from "../utilityfunctions/compare"
@@ -10,23 +10,17 @@ import { graphql } from "gatsby"
 import image from "../images/refresh-svgrepo-com.svg"
 import Input from "../components/Form/Input"
 import { CSSTransition } from "react-transition-group"
-import OfflineNotification from "../components/UI/OfflineNotification/OfflineNotification.js";
+import OfflineNotification from '../components/UI/OfflineNotification/OfflineNotification';
+
 const IndexPage = ({ data }) => {
-  const drugs = [...new Set(data.allDataJson.edges[0].node.names)]
+  const drugs = [...new Set(data.allDataJson.edges[0].node.drugs.map(drug=>drug.name))]
   const fullInfo = [...new Set(data.allDataJson.edges[0].node.drugs)]
   const [filteredList, setFilteredList] = useState([])
   const [selectedDrugs, setSelectedDrugs] = useState([])
   const [searchForm, updateSearchForm] = useState("")
   const [detailedInfo, setDetailedInfo] = useState(undefined)
   const [tableInView, setTableInView] = useState(false)
-  const [offlineSuccess, setOfflineSuccess] = useState(false);
 
-useEffect(()=>{
-  window.self.addEventListener( "install", event => {
-    setOfflineSuccess(true)
-    console.log('success')
-});
-},[])
   const dataFetch = array => {
     const d1 = data.allDataJson.edges[0].node.drugs.find(
       obj => obj.name === array[0]
@@ -137,7 +131,7 @@ useEffect(()=>{
             </CSSTransition>
           </Col>
         </Row>
-        {offlineSuccess && <OfflineNotification clicked={()=>setOfflineSuccess(false)}/>}
+        <OfflineNotification/>
         <CSSTransition in={tableInView} timeout={600} onExited={handleReset}>
           <Row
             style={{

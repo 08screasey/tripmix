@@ -4,8 +4,8 @@ import styles from './OfflineNotification.module.scss'
 const OfflineNotification = ({clicked}) => {
     return (
         <div className={styles.OfflineNotification} onClick={clicked}>
-            <h4 className="pl-2">Hey There!    <span className="d-inline-block pl-5" style={{color:"crimson"}}>X</span></h4>
-            <p>We built this app so you can access the info you need whenever, even offline!</p>
+            <h4 className="pl-2">Did You Know?</h4>
+            <p>TripMix is available offline! Keep yourself and your friends safe and informed wherever you go.</p>
         </div>
     )
 }
