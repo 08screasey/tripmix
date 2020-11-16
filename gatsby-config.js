@@ -42,7 +42,11 @@ module.exports = {
         background_color: `#f5f5f5`,
         theme_color: `rgb(32,35,42)`,
         display: `Standalone`,
-        icon:`src/images/TripSit2.jpg`
+        icon:`src/images/TripSit2.jpg`,
+        icon_options: {
+          // For all the options available, please see the additional resources below.
+          purpose: `any maskable`,
+        }
       },
     },
     `gatsby-plugin-offline`
