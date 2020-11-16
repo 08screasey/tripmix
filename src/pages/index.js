@@ -70,7 +70,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout pageInfo={{ pageName: "index" }}>
       <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
-      <Container className="text-center position-relative" style={{minHeight:'500px'}}>
+      <Container className="text-center position-relative" style={{minHeight:'500px', paddingBottom:"100px"}}>
         {detailedInfo && <ComboPanel info={detailedInfo} />}
         {selectedDrugs.length > 0 && (
           <div
@@ -136,7 +136,7 @@ const IndexPage = ({ data }) => {
           <Row
             style={{
               boxShadow: "10px 10px 20px rgba(0,0,0,0.1)",
-              marginBottom: "100px",
+              marginBottom: "10px",
               borderRadius: "10px",
             }}
             id="DrugInfoContainer"
@@ -222,7 +222,6 @@ export const query = graphql`
               strong
             }
           }
-          names
         }
       }
     }
