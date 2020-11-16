@@ -39,9 +39,9 @@ module.exports = {
         name: `Tripsit Database`,
         short_name: `TripMix`,
         start_url: `/`,
-        background_color: `#000`,
-        theme_color: `#000`,
-        display: `minimal-ui`,
+        background_color: `#f5f5f5`,
+        theme_color: `rgb(32,35,42)`,
+        display: `Standalone`,
         icon:`src/images/TripSit2.jpg`
       },
     },
