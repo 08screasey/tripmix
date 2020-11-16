@@ -89,7 +89,7 @@ useEffect(()=>{
             <p className="m-0">{" Reset Search"}</p>
           </div>
         )}
-        <CSSTransition in={selectedDrugs.length === 0} timeout={1000} unmountOnExit>
+        <CSSTransition in={selectedDrugs.length === 0} timeout={{enter:1000, exit:0}} unmountOnExit>
           <div className="Info-Panel my-4 F-Industry T-Outline">
             Combining information from Tripsit's factsheets and drug interactions to help you get the knowledge you need, when you need it.
           </div>
@@ -97,7 +97,7 @@ useEffect(()=>{
         <Row>
           <Col xs={12}>
             <CSSTransition
-              timeout={{ exit: 1000, enter: 1000 }}
+              timeout={{ exit: 0, enter: 1000 }}
               in={selectedDrugs && selectedDrugs.length < 2}
               unmountOnExit
               mountOnEnter
