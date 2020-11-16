@@ -70,7 +70,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout pageInfo={{ pageName: "index" }}>
       <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
-      <Container className="text-center">
+      <Container className="text-center" style={{minHeight:'500px'}}>
         {detailedInfo && <ComboPanel info={detailedInfo} />}
         {selectedDrugs.length > 0 && (
           <div
