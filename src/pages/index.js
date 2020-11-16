@@ -136,7 +136,7 @@ const IndexPage = ({ data }) => {
           <Row
             style={{
               boxShadow: "10px 10px 20px rgba(0,0,0,0.1)",
-              marginBottom: "20px",
+              marginBottom: "100px",
               borderRadius: "10px",
             }}
             id="DrugInfoContainer"
