@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Tab, Tabs } from "react-bootstrap"
 import listQuery from "../utilityfunctions/list-query"
 import compare from "../utilityfunctions/compare"
@@ -8,31 +8,44 @@ import DrugInfo from "../components/drug-info"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import image from "../images/refresh-svgrepo-com.svg"
-import Input from "../components/Form/Input"
+import Input from "../components/Form/Input";
+import axios from 'axios';
 import { CSSTransition } from "react-transition-group"
 import OfflineNotification from '../components/UI/OfflineNotification/OfflineNotification';
 
-const IndexPage = ({ data }) => {
-  const drugs = [...new Set(data.allDataJson.edges[0].node.drugs.map(drug=>drug.name))]
-  const fullInfo = [...new Set(data.allDataJson.edges[0].node.drugs)]
+const IndexPage = () => {
+  const [drugsFetch, setDrugs] = useState([])
+  const drugs = drugsFetch ? [...new Set(drugsFetch.map(drug=>drug.name))] : []
+  const [loading, setLoading] = useState(false)
   const [filteredList, setFilteredList] = useState([])
   const [selectedDrugs, setSelectedDrugs] = useState([])
   const [searchForm, updateSearchForm] = useState("")
   const [detailedInfo, setDetailedInfo] = useState(undefined)
   const [tableInView, setTableInView] = useState(false)
 
+  useEffect(()=>{
+
+    async function fetchDrugs (){
+      const res = await fetch("http://localhost:8000/drugdata.json")
+      setDrugs(res.data);
+      setLoading(false)
+    }
+    setLoading(true)
+    fetchDrugs()
+  },[])
+
   const dataFetch = array => {
-    const d1 = data.allDataJson.edges[0].node.drugs.find(
+    const d1 = drugsFetch.find(
       obj => obj.name === array[0]
     )
-    const d2 = data.allDataJson.edges[0].node.drugs.find(
+    const d2 = drugsFetch.find(
       obj => obj.name === array[1]
     )
     setDetailedInfo(compare(d1, d2))
   }
   const handleInputChange = e => {
     updateSearchForm(e.target.value)
-    setFilteredList(listQuery(drugs, e.target.value, undefined, fullInfo))
+    setFilteredList(listQuery(drugs, e.target.value, undefined, drugsFetch))
   }
   const handleFormSubmit = e => {
     e.preventDefault()
@@ -92,7 +105,7 @@ const IndexPage = ({ data }) => {
         </CSSTransition>
         <Row>
           <Col xs={12}>
-            <CSSTransition
+            {loading ? <p>Loading...</p> :<CSSTransition
               timeout={{ exit: 0, enter: 1000 }}
               in={selectedDrugs && selectedDrugs.length < 2}
               unmountOnExit
@@ -129,6 +142,7 @@ const IndexPage = ({ data }) => {
                 )}
               </form>
             </CSSTransition>
+            }
           </Col>
         </Row>
         <OfflineNotification/>
@@ -150,7 +164,7 @@ const IndexPage = ({ data }) => {
                 {selectedDrugs.length > 0 && (
                   <Tab eventKey="key1" title={selectedDrugs[0]}>
                     <DrugInfo
-                      drug={data.allDataJson.edges[0].node.drugs.find(
+                      drug={drugsFetch.find(
                         el => el.name === selectedDrugs[0]
                       )}
                     />
@@ -159,7 +173,7 @@ const IndexPage = ({ data }) => {
                 {selectedDrugs.length > 1 && (
                   <Tab eventKey="key2" title={selectedDrugs[1]}>
                     <DrugInfo
-                      drug={data.allDataJson.edges[0].node.drugs.find(
+                      drug={drugsFetch.find(
                         el => el.name === selectedDrugs[1]
                       )}
                     />
@@ -175,7 +189,7 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
-export const query = graphql`
+/*export const query = graphql`
   {
     allDataJson {
       edges {
@@ -227,3 +241,4 @@ export const query = graphql`
     }
   }
 `
+*/

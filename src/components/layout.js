@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 
@@ -44,7 +37,11 @@ const Layout = ({ children, pageInfo }) => (
             <Col className="footer-col">
               <footer>
                 <span>
-                  © {new Date().getFullYear()}, Built by <a href="https://www.venturegreentravel.com" rel="noreferrer">Sam Creasey</a>, Tripsit
+                  © {new Date().getFullYear()}, Built by{" "}
+                  <a href="https://www.venturegreentravel.com" rel="noreferrer">
+                    Sam Creasey
+                  </a>
+                  , Tripsit
                 </span>
               </footer>
             </Col>
